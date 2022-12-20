@@ -1,4 +1,4 @@
-# playwright-specflow-pom-dotnet-c
+# playwright-specflow-pom-dotnet
 
 This project is for the purpose of showing a working example of how to use Playwright with SpecFlow and Page Object Models (POM) in .NET (C#).
 
