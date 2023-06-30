@@ -5,19 +5,13 @@ namespace PlaywrightSpecFlowPOM.Pages;
 
 public class SearchResultsPage
 {
-    #region Constructors
-
     private readonly IPage _user;
 
     public SearchResultsPage(Hooks.Hooks hooks)
     {
         _user = hooks.User;
     }
-
-    #endregion
-
-    #region Selectors
-
+    
     private int _resultIndex; //-> this is being set in the action/assertions below
     private ILocator SearchInput => _user.Locator("input[id='search_form_input']");
     private ILocator SearchResults => _user.Locator("div[id='links']");
@@ -27,10 +21,6 @@ public class SearchResultsPage
     //We're using the single search result that we've located as 'ResultArticle' to locate the next 2 selectors
     private ILocator ResultHeading => ResultArticle.Locator("h2");
     private ILocator ResultLink => ResultArticle.Locator("a[data-testid='result-title-a']");
-
-    #endregion
-
-    #region Actions/Assertions
 
     public async Task AssertPageContent(string searchTerm)
     {
@@ -55,7 +45,4 @@ public class SearchResultsPage
         var firstResultLink = await ResultLink.GetAttributeAsync("href");
         firstResultLink.Should().Be(expectedResultLink);
     }
-
-    #endregion
-
 }

@@ -5,8 +5,6 @@ namespace PlaywrightSpecFlowPOM.Pages;
 
 public class DuckDuckGoHomePage
 {
-    #region Constructors
-
     private readonly IPage _user;
 
     public DuckDuckGoHomePage(Hooks.Hooks hooks)
@@ -14,17 +12,9 @@ public class DuckDuckGoHomePage
         _user = hooks.User;
     }
 
-    #endregion
-
-    #region Selectors
-    
     private ILocator SearchInput => _user.Locator("input[id='search_form_input_homepage']");
     private ILocator SearchButton => _user.Locator("input[id='search_button_homepage']");
-
-    #endregion
-
-    #region Actions/Assertions
-
+    
     public async Task AssertPageContent()
     {
         //Assert that the correct URL has been reached
@@ -51,6 +41,4 @@ public class DuckDuckGoHomePage
         //Click the search button to submit the search
         await SearchButton.ClickAsync();
     }
-
-    #endregion
 }
