@@ -18,7 +18,7 @@ public class SearchResultsPage
 
     public async Task AssertPageContent(string searchTerm)
     {
-        await _user.WaitForURLAsync($"https://duckduckgo.com/?va=v&t=ha&q={searchTerm}&ia=web");
+        await _user.WaitForURLAsync($"https://duckduckgo.com/?t=h_&q={searchTerm}&ia=web");
         await Assertions.Expect(SearchInput).ToHaveValueAsync(searchTerm);
     }
     
